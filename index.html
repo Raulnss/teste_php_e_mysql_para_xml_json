@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).on("click", "#baixar", function(){
+					$.ajax({
+			   		url: "baixar_arquivos.php",
+			   		type: "POST",
+			    	dataType: "html"
+			}).done(function(resposta) {
+			    $("div").html(resposta);
+			}).fail(function(jqXHR, textStatus ) {
+			    console.log("Request failed: " + textStatus);
+			}).always(function() {
+			    console.log("Foi");
+          });
+          });
+		  $(document).on("click", "#crj", function(){
+					$.ajax({
+			   		url: "criar_json.php",
+			   		type: "POST",
+			    	dataType: "html"
+			}).done(function(resposta) {
+			    $("div").html(resposta);
+			}).fail(function(jqXHR, textStatus ) {
+			    console.log("Request failed: " + textStatus);
+			}).always(function() {
+			    console.log("Foi");
+          });
+          })
+		  $(document).on("click", "#crx", function(){
+					$.ajax({
+			   		url: "criar_xml.php",
+			   		type: "POST",
+			    	dataType: "html"
+			}).done(function(resposta) {
+			    $("div").html(resposta);
+			}).fail(function(jqXHR, textStatus ) {
+			    console.log("Request failed: " + textStatus);
+			}).always(function() {
+			    console.log("Foi");
+          });
+          })
+		  $(document).on("click", "#inj", function(){
+					$.ajax({
+			   		url: "inserir_json.php",
+			   		type: "POST",
+			    	dataType: "html"
+			}).done(function(resposta) {
+			    $("div").html(resposta);
+			}).fail(function(jqXHR, textStatus ) {
+			    console.log("Request failed: " + textStatus);
+			}).always(function() {
+			    console.log("Foi");
+          });
+          })
+		  $(document).on("click", "#inx", function(){
+					$.ajax({
+			   		url: "inserir_xml.php",
+			   		type: "POST",
+			    	dataType: "html"
+			}).done(function(resposta) {
+			    $("div").html(resposta);
+			}).fail(function(jqXHR, textStatus ) {
+			    console.log("Request failed: " + textStatus);
+			}).always(function() {
+			    console.log("Foi");
+          });
+          })
+        })
+    </script>
+</head>
+<body>
+    <button id="crj">criar um jason com as informaçoes do sql</button><br><br>
+    <button id="crx">criar um xml com as informaçoes do sql</button><br><br>
+    <button id="inj">atualizar um jason com as informaçoes do sql</button><br><br>
+    <button id="inx">atualizar um xml com as informaçoes do sql</button><br><br>
+	<div></div>
+</body>
+</html>
